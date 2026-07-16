@@ -49,26 +49,25 @@
     opacity: 0.65;
   }
 
-  /* Hero — pulled toward upper 45% of viewport */
-  .hero-wrapper {
+  /* Main content area */
+  .main {
     flex: 1;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
-    padding-top: 4vh;
-    padding-bottom: 8vh;
+    justify-content: center;
+    padding: 2rem 3.5rem 3rem;
   }
 
+  /* Two column grid */
   .hero {
     display: grid;
     grid-template-columns: 1fr 1fr;
     align-items: center;
-    /* Tighter gap — columns talk to each other */
-    gap: 4rem;
-    max-width: 920px;
+    gap: 3rem;
+    max-width: 960px;
     margin: 0 auto;
     width: 100%;
-    padding: 0 3.5rem;
+    margin-bottom: 3rem;
   }
 
   .hero-copy {
@@ -87,7 +86,6 @@
     opacity: 0.6;
   }
 
-  /* Larger, heavier headline for visual weight */
   .hero-headline {
     font-family: 'Playfair Display', serif;
     font-size: 52px;
@@ -111,15 +109,38 @@
     margin-bottom: 1.4rem;
   }
 
-  /* Tighter body copy — reads as a solid block */
   .hero-body {
     font-size: 13px;
     font-weight: 300;
     color: var(--ink);
     opacity: 0.5;
-    line-height: 1.7;
-    margin-bottom: 2.2rem;
+    line-height: 1.75;
     max-width: 300px;
+  }
+
+  /* Bottle — large, centred in right column */
+  .hero-image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .hero-image img {
+    width: 100%;
+    max-width: 520px;
+    height: auto;
+    display: block;
+    mix-blend-mode: multiply;
+  }
+
+  /* Launching soon — centred below both columns */
+  .launching-wrapper {
+    max-width: 960px;
+    margin: 0 auto;
+    width: 100%;
+    text-align: center;
+    padding-top: 1rem;
+    border-top: 0.5px solid rgba(27,107,90,0.1);
   }
 
   .launching {
@@ -130,21 +151,6 @@
     color: var(--teal);
   }
 
-  /* Bottle */
-  .hero-image {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .hero-image img {
-    width: 100%;
-    max-width: 300px;
-    height: auto;
-    display: block;
-    mix-blend-mode: multiply;
-  }
-
   /* Footer */
   .footer {
     flex-shrink: 0;
@@ -153,6 +159,7 @@
     justify-content: space-between;
     align-items: center;
     border-top: 0.5px solid rgba(27,107,90,0.1);
+    margin-top: 2rem;
   }
 
   .footer span {
@@ -172,39 +179,35 @@
   }
 
   /* Fade in on load */
-  .hero-copy, .hero-image {
+  .hero-copy, .hero-image, .launching-wrapper {
     opacity: 0;
-    transform: translateY(16px);
+    transform: translateY(14px);
     animation: fadeUp 0.9s ease forwards;
   }
-
-  .hero-image {
-    animation-delay: 0.2s;
-  }
+  .hero-image { animation-delay: 0.15s; }
+  .launching-wrapper { animation-delay: 0.3s; }
 
   @keyframes fadeUp {
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
+    to { opacity: 1; transform: translateY(0); }
   }
 
   /* Mobile */
   @media (max-width: 700px) {
     .header { padding: 1.2rem 1.5rem; }
+    .main { padding: 2rem 1.5rem 2rem; }
     .hero {
       grid-template-columns: 1fr;
       gap: 2rem;
-      padding: 0 1.5rem;
       text-align: center;
+      margin-bottom: 2rem;
     }
     .hero-copy { align-items: center; }
     .rule { margin: 0 auto 1.4rem; }
     .hero-body { max-width: 100%; }
     .hero-image { order: -1; }
-    .hero-image img { max-width: 180px; }
+    .hero-image img { max-width: 200px; }
     .hero-headline { font-size: 32px; }
-    .footer { padding: 1.2rem 1.5rem; flex-direction: column; gap: 0.4rem; text-align: center; }
+    .footer { padding: 1.2rem 1.5rem; flex-direction: column; gap: 0.4rem; text-align: center; margin-top: 1rem; }
   }
 </style>
 </head>
@@ -215,20 +218,22 @@
   <span class="header-sub">Fragrance Mist</span>
 </header>
 
-<div class="hero-wrapper">
+<main class="main">
   <section class="hero">
     <div class="hero-copy">
       <p class="hero-wordmark">RDY</p>
       <h1 class="hero-headline">Cologne for<br>the morning.<br><em>RDY for the rest.</em></h1>
       <div class="rule"></div>
       <p class="hero-body">A premium men's fragrance mist designed for daytime reapplication. Built for the office, the commute, the gym and everything in between.</p>
-      <p class="launching">Launching soon</p>
     </div>
     <div class="hero-image">
       <img src="bottle.png" alt="RDY Copper Fragrance Mist" />
     </div>
   </section>
-</div>
+  <div class="launching-wrapper">
+    <span class="launching">Launching soon</span>
+  </div>
+</main>
 
 <footer class="footer">
   <span class="footer-logo">RDY</span>
