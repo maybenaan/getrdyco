@@ -212,6 +212,33 @@ body {
     text-align: center;
   }
 }
+
+.waitlist {
+  display: flex;
+  margin-bottom: 1.8rem;
+  gap: 0.5rem;
+}
+
+.waitlist input {
+  background: transparent;
+  border: 1px solid rgba(27,107,90,0.25);
+  padding: 0.8rem 1rem;
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  width: 220px;
+}
+
+.waitlist button {
+  background: var(--teal);
+  color: var(--cream);
+  border: none;
+  padding: 0.8rem 1.2rem;
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+  
 </style>
 </head>
 
@@ -238,6 +265,11 @@ body {
       Built for the office, the commute, the gym and everything in between.
     </p>
 
+<form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" class="waitlist">
+  <input type="email" name="email" placeholder="Email address" required>
+  <button type="submit">Join waitlist</button>
+</form>
+    
     <p class="launching">Launching soon</p>
   </div>
 
