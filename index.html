@@ -4,26 +4,31 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>RDY — Fragrance Mist</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   :root { --teal: #1B6B5A; --cream: #F5EDD8; --ink: #1a1a18; }
+
+  html, body {
+    height: 100%;
+  }
 
   body {
     background: var(--cream);
     color: var(--ink);
     font-family: 'Inter', sans-serif;
-    min-height: 100vh;
     display: flex;
     flex-direction: column;
+    min-height: 100vh;
   }
 
   /* Header */
   .header {
-    padding: 1.8rem 3rem;
+    padding: 1.8rem 3.5rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-shrink: 0;
   }
 
   .logo {
@@ -44,23 +49,31 @@
     opacity: 0.65;
   }
 
-  /* Hero — two column */
-  .hero {
+  /* Hero — pulled toward upper 45% of viewport */
+  .hero-wrapper {
     flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding-top: 4vh;
+    padding-bottom: 8vh;
+  }
+
+  .hero {
     display: grid;
     grid-template-columns: 1fr 1fr;
     align-items: center;
-    padding: 3rem 3rem 4rem;
-    gap: 2rem;
-    max-width: 1100px;
+    /* Tighter gap — columns talk to each other */
+    gap: 4rem;
+    max-width: 920px;
     margin: 0 auto;
     width: 100%;
+    padding: 0 3.5rem;
   }
 
   .hero-copy {
     display: flex;
     flex-direction: column;
-    justify-content: center;
   }
 
   .hero-wordmark {
@@ -70,17 +83,19 @@
     letter-spacing: 0.5em;
     color: var(--teal);
     text-transform: uppercase;
-    margin-bottom: 1.5rem;
-    opacity: 0.7;
+    margin-bottom: 1.2rem;
+    opacity: 0.6;
   }
 
+  /* Larger, heavier headline for visual weight */
   .hero-headline {
     font-family: 'Playfair Display', serif;
-    font-size: 40px;
+    font-size: 52px;
     font-weight: 400;
     color: var(--ink);
-    line-height: 1.2;
-    margin-bottom: 2rem;
+    line-height: 1.15;
+    margin-bottom: 1.6rem;
+    letter-spacing: -0.01em;
   }
 
   .hero-headline em {
@@ -93,28 +108,29 @@
     height: 1px;
     background: var(--teal);
     opacity: 0.35;
-    margin-bottom: 2rem;
+    margin-bottom: 1.4rem;
   }
 
+  /* Tighter body copy — reads as a solid block */
   .hero-body {
     font-size: 13px;
     font-weight: 300;
     color: var(--ink);
-    opacity: 0.55;
-    line-height: 1.85;
-    margin-bottom: 2.5rem;
-    max-width: 340px;
+    opacity: 0.5;
+    line-height: 1.7;
+    margin-bottom: 2.2rem;
+    max-width: 300px;
   }
 
   .launching {
     font-size: 10px;
     font-weight: 500;
-    letter-spacing: 0.25em;
+    letter-spacing: 0.28em;
     text-transform: uppercase;
     color: var(--teal);
   }
 
-  /* Hero image */
+  /* Bottle */
   .hero-image {
     display: flex;
     align-items: center;
@@ -123,15 +139,16 @@
 
   .hero-image img {
     width: 100%;
-    max-width: 420px;
+    max-width: 300px;
     height: auto;
     display: block;
-    border-radius: 2px;
+    mix-blend-mode: multiply;
   }
 
   /* Footer */
   .footer {
-    padding: 1.5rem 3rem;
+    flex-shrink: 0;
+    padding: 1.4rem 3.5rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -142,7 +159,7 @@
     font-size: 10px;
     font-weight: 300;
     color: var(--ink);
-    opacity: 0.28;
+    opacity: 0.25;
     letter-spacing: 0.06em;
   }
 
@@ -154,21 +171,40 @@
     font-size: 11px;
   }
 
+  /* Fade in on load */
+  .hero-copy, .hero-image {
+    opacity: 0;
+    transform: translateY(16px);
+    animation: fadeUp 0.9s ease forwards;
+  }
+
+  .hero-image {
+    animation-delay: 0.2s;
+  }
+
+  @keyframes fadeUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
   /* Mobile */
   @media (max-width: 700px) {
     .header { padding: 1.2rem 1.5rem; }
     .hero {
       grid-template-columns: 1fr;
-      padding: 2rem 1.5rem 3rem;
+      gap: 2rem;
+      padding: 0 1.5rem;
       text-align: center;
     }
     .hero-copy { align-items: center; }
-    .rule { margin: 0 auto 2rem; }
+    .rule { margin: 0 auto 1.4rem; }
     .hero-body { max-width: 100%; }
     .hero-image { order: -1; }
-    .hero-image img { max-width: 280px; }
-    .hero-headline { font-size: 28px; }
-    .footer { padding: 1.2rem 1.5rem; flex-direction: column; gap: 0.5rem; text-align: center; }
+    .hero-image img { max-width: 180px; }
+    .hero-headline { font-size: 32px; }
+    .footer { padding: 1.2rem 1.5rem; flex-direction: column; gap: 0.4rem; text-align: center; }
   }
 </style>
 </head>
@@ -179,18 +215,20 @@
   <span class="header-sub">Fragrance Mist</span>
 </header>
 
-<section class="hero">
-  <div class="hero-copy">
-    <p class="hero-wordmark">RDY</p>
-    <h1 class="hero-headline">Cologne for the morning.<br><em>RDY for the rest.</em></h1>
-    <div class="rule"></div>
-    <p class="hero-body">A premium men's fragrance mist designed for daytime reapplication. Built for the office, the commute, the gym and everything in between.</p>
-    <p class="launching">Launching soon</p>
-  </div>
-  <div class="hero-image">
-    <img src="hero.jpg" alt="RDY Copper Fragrance Mist" />
-  </div>
-</section>
+<div class="hero-wrapper">
+  <section class="hero">
+    <div class="hero-copy">
+      <p class="hero-wordmark">RDY</p>
+      <h1 class="hero-headline">Cologne for<br>the morning.<br><em>RDY for the rest.</em></h1>
+      <div class="rule"></div>
+      <p class="hero-body">A premium men's fragrance mist designed for daytime reapplication. Built for the office, the commute, the gym and everything in between.</p>
+      <p class="launching">Launching soon</p>
+    </div>
+    <div class="hero-image">
+      <img src="bottle.png" alt="RDY Copper Fragrance Mist" />
+    </div>
+  </section>
+</div>
 
 <footer class="footer">
   <span class="footer-logo">RDY</span>
