@@ -34,7 +34,7 @@ body {
 }
 
 .header {
-  padding: 1.8rem 3rem;
+  padding: 1.8rem 4rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -57,11 +57,19 @@ body {
 
 .main {
   flex: 1;
+  display: flex;
+  align-items: center;
+  padding: 2rem 4rem 3rem;
+}
+
+.hero {
   display: grid;
   grid-template-columns: 1fr 1fr;
   align-items: center;
-  gap: 4rem;
-  padding: 2rem 3rem 3rem;
+  gap: 3rem;
+  max-width: 1100px;
+  width: 100%;
+  margin: 0 auto;
 }
 
 .hero-copy {
@@ -122,6 +130,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   gap: 1.8rem;
   opacity: 0;
   transform: translateY(14px);
@@ -129,14 +138,12 @@ body {
 }
 
 .bottle-blur {
-  width: 100%;
-  max-width: 340px;
-  height: 50vh;
+  width: 280px;
+  height: auto;
   object-fit: contain;
-  filter: blur(4px) brightness(1.02);
+  filter: blur(6px) brightness(1.02);
   opacity: .9;
   mix-blend-mode: multiply;
-  transform: scale(1.02);
 }
 
 .teaser-text {
@@ -148,7 +155,7 @@ body {
 }
 
 .footer {
-  padding: 1.4rem 3rem;
+  padding: 1.4rem 4rem;
   display: flex;
   justify-content: space-between;
   border-top: .5px solid rgba(27,107,90,.1);
@@ -181,10 +188,13 @@ body {
   }
 
   .main {
-    grid-template-columns: 1fr;
-    text-align: center;
-    gap: 2.5rem;
     padding: 2rem 1.5rem;
+  }
+
+  .hero {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+    text-align: center;
   }
 
   .hero-copy {
@@ -204,7 +214,7 @@ body {
   }
 
   .bottle-blur {
-    height: 30vh;
+    width: 220px;
   }
 
   .footer {
@@ -224,47 +234,52 @@ body {
   <span class="header-sub">Fragrance Mist</span>
 </header>
 
+
 <main class="main">
 
-  <div class="hero-copy">
+<section class="hero">
 
-    <p class="hero-wordmark">RDY</p>
+<div class="hero-copy">
 
-    <h1 class="hero-headline">
-      Cologne for the morning.<br>
-      <em>RDY for the rest.</em>
-    </h1>
+<p class="hero-wordmark">RDY</p>
 
-    <div class="rule"></div>
+<h1 class="hero-headline">
+Cologne for the morning.<br>
+<em>RDY for the rest.</em>
+</h1>
 
-    <p class="hero-body">
-      A premium men's fragrance mist designed for daytime reapplication.
-      Built for the office, the commute, the gym and everything in between.
-    </p>
+<div class="rule"></div>
 
-    <p class="launching">Launching soon</p>
+<p class="hero-body">
+A premium men's fragrance mist designed for daytime reapplication.
+Built for the office, the commute, the gym and everything in between.
+</p>
 
-  </div>
+<p class="launching">Launching soon</p>
+
+</div>
 
 
-  <div class="bottle-col">
+<div class="bottle-col">
 
-    <img class="bottle-blur" src="hero.jpg" alt="RDY Fragrance Mist">
+<img class="bottle-blur" src="hero.jpg" alt="RDY Fragrance Mist">
 
-    <p class="teaser-text">
-      We're just filling the bottle up.
-    </p>
+<p class="teaser-text">
+We're just filling the bottle up.
+</p>
 
-  </div>
+</div>
+
+</section>
 
 </main>
 
 
 <footer class="footer">
 
-  <span class="footer-logo">RDY</span>
-  <span>getrdy.co</span>
-  <span>© 2026 RDY</span>
+<span class="footer-logo">RDY</span>
+<span>getrdy.co</span>
+<span>© 2026 RDY</span>
 
 </footer>
 
