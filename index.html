@@ -4,186 +4,217 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>RDY — Fragrance Mist</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
 <style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  :root { --teal: #1B6B5A; --cream: #F5EDD8; --ink: #1a1a18; }
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
-  html, body { height: 100%; }
+:root {
+  --teal: #1B6B5A;
+  --cream: #F5EDD8;
+  --ink: #1a1a18;
+}
 
-  body {
-    background: var(--cream);
-    color: var(--ink);
-    font-family: 'Inter', sans-serif;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
+html, body {
+  height: 100%;
+}
+
+body {
+  background: var(--cream);
+  color: var(--ink);
+  font-family: 'Inter', sans-serif;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.header {
+  padding: 1.8rem 3rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 12px;
+  letter-spacing: .45em;
+  text-transform: uppercase;
+}
+
+.header-sub {
+  font-size: 10px;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--teal);
+  opacity: .65;
+}
+
+.main {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 4rem;
+  padding: 2rem 3rem 3rem;
+}
+
+.hero-copy {
+  display: flex;
+  flex-direction: column;
+  opacity: 0;
+  transform: translateY(14px);
+  animation: fadeUp .9s ease forwards;
+}
+
+.hero-wordmark {
+  font-family: 'Playfair Display', serif;
+  font-size: 10px;
+  letter-spacing: .5em;
+  text-transform: uppercase;
+  color: var(--teal);
+  opacity: .6;
+  margin-bottom: 1.2rem;
+}
+
+.hero-headline {
+  font-family: 'Playfair Display', serif;
+  font-size: 44px;
+  line-height: 1.2;
+  font-weight: 400;
+  margin-bottom: 1.6rem;
+}
+
+.hero-headline em {
+  color: var(--teal);
+}
+
+.rule {
+  width: 22px;
+  height: 1px;
+  background: var(--teal);
+  opacity: .35;
+  margin-bottom: 1.4rem;
+}
+
+.hero-body {
+  max-width: 360px;
+  font-size: 13px;
+  line-height: 1.75;
+  opacity: .5;
+  margin-bottom: 2.2rem;
+}
+
+.launching {
+  font-size: 10px;
+  letter-spacing: .28em;
+  text-transform: uppercase;
+  color: var(--teal);
+  font-weight: 500;
+}
+
+.bottle-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.8rem;
+  opacity: 0;
+  transform: translateY(14px);
+  animation: fadeUp .9s ease .15s forwards;
+}
+
+.bottle-blur {
+  width: 100%;
+  max-width: 340px;
+  height: 50vh;
+  object-fit: contain;
+  filter: blur(18px) brightness(1.02);
+  opacity: .75;
+  mix-blend-mode: multiply;
+  transform: scale(1.05);
+}
+
+.teaser-text {
+  font-size: 9px;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  opacity: .35;
+  text-align: center;
+}
+
+.footer {
+  padding: 1.4rem 3rem;
+  display: flex;
+  justify-content: space-between;
+  border-top: .5px solid rgba(27,107,90,.1);
+}
+
+.footer span {
+  font-size: 10px;
+  opacity: .25;
+  letter-spacing: .06em;
+}
+
+.footer-logo {
+  font-family: 'Playfair Display', serif;
+  letter-spacing: .4em;
+  text-transform: uppercase;
+}
+
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
+}
 
-  .header {
-    padding: 1.8rem 4rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-shrink: 0;
-  }
-
-  .logo {
-    font-family: 'Playfair Display', serif;
-    font-size: 12px;
-    font-weight: 400;
-    letter-spacing: 0.45em;
-    color: var(--ink);
-    text-transform: uppercase;
-  }
-
-  .header-sub {
-    font-size: 10px;
-    font-weight: 400;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--teal);
-    opacity: 0.65;
+@media (max-width:700px) {
+  .header,
+  .footer {
+    padding: 1.2rem 1.5rem;
   }
 
   .main {
-    flex: 1;
-    display: flex;
-    align-items: center;
-    padding: 2rem 4rem 3rem;
-  }
-
-  .hero {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    align-items: center;
+    grid-template-columns: 1fr;
+    text-align: center;
     gap: 2.5rem;
-    max-width: 1100px;
-    margin: 0 auto;
-    width: 100%;
+    padding: 2rem 1.5rem;
   }
 
   .hero-copy {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .hero-wordmark {
-    font-family: 'Playfair Display', serif;
-    font-size: 10px;
-    font-weight: 400;
-    letter-spacing: 0.5em;
-    color: var(--teal);
-    text-transform: uppercase;
-    margin-bottom: 1.2rem;
-    opacity: 0.6;
-  }
-
-  /* Reduced to 44px — wraps cleanly on two lines */
-  .hero-headline {
-    font-family: 'Playfair Display', serif;
-    font-size: 44px;
-    font-weight: 400;
-    color: var(--ink);
-    line-height: 1.2;
-    margin-bottom: 1.6rem;
-    letter-spacing: -0.01em;
-  }
-
-  .hero-headline em {
-    font-style: italic;
-    color: var(--teal);
+    align-items: center;
   }
 
   .rule {
-    width: 22px;
-    height: 1px;
-    background: var(--teal);
-    opacity: 0.35;
-    margin-bottom: 1.4rem;
+    margin: 0 auto 1.4rem;
   }
 
   .hero-body {
-    font-size: 13px;
-    font-weight: 300;
-    color: var(--ink);
-    opacity: 0.5;
-    line-height: 1.75;
-    max-width: 340px;
-    margin-bottom: 2.2rem;
+    max-width: 100%;
   }
 
-  .launching {
-    font-size: 10px;
-    font-weight: 500;
-    letter-spacing: 0.28em;
-    text-transform: uppercase;
-    color: var(--teal);
+  .hero-headline {
+    font-size: 30px;
   }
 
-  .hero-image {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .hero-image img {
-    height: 50vh;
-    width: auto;
-    display: block;
-    mix-blend-mode: multiply;
+  .bottle-blur {
+    height: 30vh;
   }
 
   .footer {
-    flex-shrink: 0;
-    padding: 1.4rem 4rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-top: 0.5px solid rgba(27,107,90,0.1);
+    flex-direction: column;
+    gap: .4rem;
+    text-align: center;
   }
-
-  .footer span {
-    font-size: 10px;
-    font-weight: 300;
-    color: var(--ink);
-    opacity: 0.25;
-    letter-spacing: 0.06em;
-  }
-
-  .footer .footer-logo {
-    font-family: 'Playfair Display', serif;
-    letter-spacing: 0.4em;
-    text-transform: uppercase;
-    font-weight: 400;
-    font-size: 11px;
-  }
-
-  .hero-copy, .hero-image {
-    opacity: 0;
-    transform: translateY(14px);
-    animation: fadeUp 0.9s ease forwards;
-  }
-  .hero-image { animation-delay: 0.15s; }
-
-  @keyframes fadeUp {
-    to { opacity: 1; transform: translateY(0); }
-  }
-
-  @media (max-width: 700px) {
-    .header, .footer { padding: 1.2rem 1.5rem; }
-    .main { padding: 2rem 1.5rem; }
-    .hero { grid-template-columns: 1fr; gap: 2rem; text-align: center; }
-    .hero-copy { align-items: center; }
-    .rule { margin: 0 auto 1.4rem; }
-    .hero-body { max-width: 100%; }
-    .hero-image { order: -1; }
-    .hero-image img { height: 35vh; }
-    .hero-headline { font-size: 30px; }
-    .footer { flex-direction: column; gap: 0.4rem; text-align: center; }
-  }
+}
 </style>
 </head>
+
 <body>
 
 <header class="header">
@@ -192,18 +223,28 @@
 </header>
 
 <main class="main">
-  <section class="hero">
-    <div class="hero-copy">
-      <p class="hero-wordmark">RDY</p>
-      <h1 class="hero-headline">Cologne for the morning.<br><em>RDY for the rest.</em></h1>
-      <div class="rule"></div>
-      <p class="hero-body">A premium men's fragrance mist designed for daytime reapplication. Built for the office, the commute, the gym and everything in between.</p>
-      <p class="launching">Launching soon</p>
-    </div>
-    <div class="hero-image">
-      <img src="bottle.png" alt="RDY Copper Fragrance Mist" />
-    </div>
-  </section>
+  <div class="hero-copy">
+    <p class="hero-wordmark">RDY</p>
+
+    <h1 class="hero-headline">
+      Cologne for the morning.<br>
+      <em>RDY for the rest.</em>
+    </h1>
+
+    <div class="rule"></div>
+
+    <p class="hero-body">
+      A premium men's fragrance mist designed for daytime reapplication.
+      Built for the office, the commute, the gym and everything in between.
+    </p>
+
+    <p class="launching">Launching soon</p>
+  </div>
+
+  <div class="bottle-col">
+    <img class="bottle-blur" src="hero.jpg" alt="">
+    <p class="teaser-text">We're just filling the bottle up.</p>
+  </div>
 </main>
 
 <footer class="footer">
