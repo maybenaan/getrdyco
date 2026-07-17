@@ -4,26 +4,21 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>RDY — Fragrance Mist</title>
-
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
-
 <style>
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
-
 :root {
   --teal: #1B6B5A;
   --cream: #F5EDD8;
   --ink: #1a1a18;
 }
-
 html, body {
   height: 100%;
 }
-
 body {
   background: var(--cream);
   color: var(--ink);
@@ -32,36 +27,31 @@ body {
   flex-direction: column;
   min-height: 100vh;
 }
-
 .header {
   padding: 1.8rem 4rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-
 .logo {
   font-family: 'Playfair Display', serif;
-  font-size: 12px;
+  font-size: 14px;
   letter-spacing: .45em;
   text-transform: uppercase;
 }
-
 .header-sub {
-  font-size: 10px;
+  font-size: 12px;
   letter-spacing: .18em;
   text-transform: uppercase;
   color: var(--teal);
   opacity: .65;
 }
-
 .main {
   flex: 1;
   display: flex;
   align-items: center;
   padding: 2rem 4rem 3rem;
 }
-
 .hero {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -71,7 +61,6 @@ body {
   width: 100%;
   margin: 0 auto;
 }
-
 .hero-copy {
   display: flex;
   flex-direction: column;
@@ -79,17 +68,15 @@ body {
   transform: translateY(14px);
   animation: fadeUp .9s ease forwards;
 }
-
 .hero-wordmark {
   font-family: 'Playfair Display', serif;
-  font-size: 10px;
+  font-size: 12px;
   letter-spacing: .5em;
   text-transform: uppercase;
   color: var(--teal);
   opacity: .6;
   margin-bottom: 1.2rem;
 }
-
 .hero-headline {
   font-family: 'Playfair Display', serif;
   font-size: 44px;
@@ -97,11 +84,9 @@ body {
   font-weight: 400;
   margin-bottom: 1.6rem;
 }
-
 .hero-headline em {
   color: var(--teal);
 }
-
 .rule {
   width: 22px;
   height: 1px;
@@ -109,23 +94,20 @@ body {
   opacity: .35;
   margin-bottom: 1.4rem;
 }
-
 .hero-body {
-  max-width: 360px;
-  font-size: 13px;
-  line-height: 1.75;
-  opacity: .5;
+  max-width: 380px;
+  font-size: 15px;
+  line-height: 1.8;
+  opacity: .55;
   margin-bottom: 2.2rem;
 }
-
 .launching {
-  font-size: 10px;
+  font-size: 12px;
   letter-spacing: .28em;
   text-transform: uppercase;
   color: var(--teal);
   font-weight: 500;
 }
-
 .bottle-col {
   display: flex;
   flex-direction: column;
@@ -136,7 +118,6 @@ body {
   transform: translateY(14px);
   animation: fadeUp .9s ease .15s forwards;
 }
-
 .bottle-blur {
   width: 330px;
   height: auto;
@@ -145,144 +126,102 @@ body {
   opacity: .92;
   mix-blend-mode: multiply;
 }
-
 .teaser-text {
-  font-size: 9px;
+  font-size: 11px;
   letter-spacing: .22em;
   text-transform: uppercase;
   opacity: .35;
   text-align: center;
 }
-
 .footer {
   padding: 1.4rem 4rem;
   display: flex;
   justify-content: space-between;
   border-top: .5px solid rgba(27,107,90,.1);
 }
-
 .footer span {
-  font-size: 10px;
+  font-size: 11px;
   opacity: .25;
   letter-spacing: .06em;
 }
-
 .footer-logo {
   font-family: 'Playfair Display', serif;
   letter-spacing: .4em;
   text-transform: uppercase;
 }
-
 @keyframes fadeUp {
   to {
     opacity: 1;
     transform: translateY(0);
   }
 }
-
 @media (max-width:700px) {
-
   .header,
   .footer {
     padding: 1.2rem 1.5rem;
   }
-
   .main {
     padding: 2rem 1.5rem;
   }
-
   .hero {
     grid-template-columns: 1fr;
     gap: 2.5rem;
     text-align: center;
   }
-
   .hero-copy {
     align-items: center;
   }
-
   .rule {
     margin: 0 auto 1.4rem;
   }
-
   .hero-body {
     max-width: 100%;
   }
-
   .hero-headline {
     font-size: 30px;
   }
-
   .bottle-blur {
     width: 220px;
   }
-
   .footer {
     flex-direction: column;
     gap: .4rem;
     text-align: center;
   }
 }
-
 </style>
 </head>
-
 <body>
-
 <header class="header">
   <span class="logo">RDY</span>
   <span class="header-sub">Fragrance Mist</span>
 </header>
-
-
 <main class="main">
-
 <section class="hero">
-
 <div class="hero-copy">
-
 <p class="hero-wordmark">RDY</p>
-
 <h1 class="hero-headline">
 Cologne for the morning.<br>
 <em>RDY for the rest.</em>
 </h1>
-
 <div class="rule"></div>
-
 <p class="hero-body">
-A premium men's fragrance mist designed for daytime reapplication.
-Built for the office, the commute, the gym and everything in between.
+A premium men's fragrance mist that picks up where your cologne leaves off.
 </p>
-
 <p class="launching">Launching soon</p>
-
 </div>
-
-
 <div class="bottle-col">
-
 <img class="bottle-blur" src="hero.jpg" alt="RDY Fragrance Mist">
-
 <p class="teaser-text">
 We're just filling the bottle up.
 </p>
-
 </div>
-
 </section>
-
 </main>
-
-
 <footer class="footer">
-
 <span class="footer-logo">RDY</span>
 <span>getrdy.co</span>
 <span>© 2026 RDY</span>
-
 </footer>
-
-
 </body>
 </html>
